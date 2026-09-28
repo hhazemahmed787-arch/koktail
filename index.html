@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F2B705">
+<meta name="copyright" content="© 2026 حازم أحمد — جميع الحقوق محفوظة">
 <title>كوكتيل | KOKTAIL</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -44,6 +45,12 @@ h1,h2,h3{font-weight:800}
 .logo .t{line-height:1.05;text-align:start}
 .logo .t b{display:block;font-size:1.3em;font-weight:800}
 .logo .t span{font-size:.68em;letter-spacing:3px;color:var(--sub);font-weight:700}
+/* حقوق الملكية */
+.copy-foot{margin-top:18px;font-size:13px;font-weight:800;color:var(--sub);display:flex;align-items:center;justify-content:center;gap:6px}
+.copy-foot svg{width:16px;height:16px;opacity:.75}
+.copy-bar{border-top:2px solid var(--line);margin-top:20px;padding-top:14px;font-size:13px;font-weight:800;color:var(--sub);display:flex;align-items:center;justify-content:center;gap:6px}
+.copy-bar svg{width:16px;height:16px;opacity:.75}
+.copy-sm{font-size:11px;font-weight:800;color:var(--sub);opacity:.85}
 .scr{display:none;min-height:100vh}
 .scr.on{display:block}
 .center{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
@@ -57,7 +64,7 @@ h1,h2,h3{font-weight:800}
 .step-dots i.on{background:var(--yell);transform:scale(1.2)}
 .ob-title{text-align:center;font-size:28px;margin:8px 0 4px}
 .ob-sub{text-align:center;color:var(--sub);font-weight:600;margin-bottom:20px}
-.ob-foot{position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:2px solid var(--line);padding:12px 16px;display:flex;gap:10px;justify-content:center;z-index:20}
+.ob-foot{position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:2px solid var(--line);padding:12px 16px 8px;display:flex;gap:10px;justify-content:center;align-items:center;z-index:20;flex-wrap:wrap}
 .lang-row{display:flex;align-items:center;gap:14px;width:100%;padding:12px 14px;border:2px solid var(--line);border-radius:16px;background:var(--card);margin-bottom:10px;font-weight:800;font-size:17px;text-align:right;transition:border .15s,transform .1s}
 .lang-row:hover{transform:translateX(-3px)}
 .lang-row .glyph{width:46px;height:46px;border-radius:13px;background:var(--yell);color:#2B2620;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex-shrink:0}
@@ -276,6 +283,11 @@ const yesterdayKey=()=>{const d=new Date();d.setDate(d.getDate()-1);return dayKe
 function toast(t){const el=document.createElement('div');el.className='toast';el.textContent=t;$('#toasts').appendChild(el);setTimeout(()=>{el.style.opacity=0;el.style.transition='opacity .4s';setTimeout(()=>el.remove(),400)},2200)}
 function modal(html){const w=$('#modal-wrap'),m=$('#modal');m.innerHTML=html;w.classList.add('on');w.onclick=e=>{if(e.target===w)w.classList.remove('on')}}
 const closeModal=()=>$('#modal-wrap').classList.remove('on');
+/* ═══ حقوق الملكية — عدّل هذا السطر فقط لو حبيت تغيّر الاسم أو السنة ═══ */
+const COPYRIGHT='© 2026 حازم أحمد — جميع الحقوق محفوظة';
+const COPY_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6Z" stroke-linejoin="round"/></svg>';
+const copyFootHTML=`<div class="copy-foot">${COPY_ICON}<span>${COPYRIGHT}</span></div>`;
+const copyBarHTML=`<div class="copy-bar">${COPY_ICON}<span>${COPYRIGHT}</span></div>`;
 
 /* ═══════ 2) الأيقونات ═══════ */
 const IC={
@@ -502,7 +514,6 @@ tea:'<path d="M22 26h52v34c0 12-10 20-26 20S22 72 22 60Z" fill="#F2B705" stroke=
 milk:'<path d="M34 16h32v10l6 12v48c0 6-6 10-10 10H38c-4 0-10-4-10-10V38l6-12Z" fill="#fff" stroke="#2B2620" stroke-width="4" stroke-linejoin="round"/><path d="M28 44h44" stroke="#2B2620" stroke-width="3.5"/>',
 cup:'<path d="M22 32h50v24c0 12-10 20-25 20S22 68 22 56Z" fill="#fff" stroke="#2B2620" stroke-width="4"/><path d="M72 38h7a9 9 0 0 1 0 18h-7" fill="none" stroke="#2B2620" stroke-width="4"/><path d="M34 14c-2.5 3.5-2.5 7 0 10.5M48 14c-2.5 3.5-2.5 7 0 10.5" stroke="#8A8F98" stroke-width="3.5" fill="none" stroke-linecap="round"/>'};
 function picSVG(k,s=74){return `<svg width="${s}" height="${s}" viewBox="0 0 100 100">${PICS[k]||''}</svg>`}
-/* ★★★ الإصلاح الجوهري: كل مجموعة كلمات بتاجها الحقيقي ★★★ */
 function T(tag,str){return str.split('|').map(s=>{const[k,ar,tl,pic]=s.split('~');return{k,ar,tl:tl||'',pic:pic||'',tag}})}
 function parseS(str){return str.split('|').map(s=>{const[a,b,c]=s.split('~');return{k:a,ar:b,tl:c||''}})}
 function parseP(str){const o={};str.split('|').forEach(s=>{const[key,a,b]=s.split('~');o[key]={k:a,ar:b}});return o}
@@ -518,8 +529,6 @@ const LANGS=[
  {id:'zh',n:'الصينية',g:'你好',speech:'zh-CN',cjk:true},
 ];
 const BANK={};
-
-/* ─── الإنجليزية ─── */
 BANK.en={w:[
 ...T('g','Hello~مرحبًا~|Hi~أهلًا~|Good morning~صباح الخير~|Good night~تصبح على خير~|Thank you~شكرًا~|Please~من فضلك~|Yes~نعم~|No~لا~|Sorry~آسف~|Goodbye~وداعًا~|Good evening~مساء الخير~|Excuse me~عفوًا~|Of course~بالطبع~'),
 ...T('q','What~ماذا~|Where~أين~|When~متى~|Who~من~|How much~كم~'),
@@ -535,8 +544,6 @@ BANK.en={w:[
 s:parseS('How are you?~كيف حالك؟~|My name is Sara~اسمي سارة~|I am fine~أنا بخير~|Where are you from?~من أين أنت؟~|I want water~أريد ماءً~|I love you~أحبك~|See you later~أراك لاحقًا~|What time is it?~كم الساعة؟~|I do not understand~لا أفهم~|Can you help me?~هل يمكنك مساعدتي؟~|Good luck~حظًا سعيدًا~|Welcome~أهلًا بك~'),
 p:parseP('hi~Hello! How can I help you?~مرحبًا! كيف أستطيع مساعدتك؟|nice~Nice to meet you!~تشرفت بمعرفتك!|how~How are you today?~كيف حالك اليوم؟|fine~I am fine, thank you!~أنا بخير، شكرًا!|from~Where are you from?~من أين أنت؟|city~I am from Cairo.~أنا من القاهرة.|bye~See you later!~أراك لاحقًا!|table~A table for two, please.~طاولة لشخصين من فضلك.|what~What would you like to eat?~ماذا تريد أن تأكل؟|order~I would like the chicken, please.~أريد الدجاج من فضلك.|bill~The bill, please.~الحساب من فضلك.|del~It was delicious!~كان لذيذًا!|this~I want this, please.~أريد هذا من فضلك.|price~How much is it?~كم سعره؟|much~It is 10 dollars.~سعره 10 دولارات.|take~I will take it, thanks!~سآخذه، شكرًا!|tick~A ticket to London, please.~تذكرة إلى لندن من فضلك.|gate~Which gate is the plane?~من أي بوابة الطائرة؟|gate2~Gate number five.~البوابة رقم خمسة.'),
 gr:['أداة التعريف a تُستخدم قبل الاسم المفرد غير المعرَّف (a book)، وthe قبل المعرَّف (the book).','الضمائر: I أنا، you أنت، he هو، she هي، we نحن، they هم. مع he/she نضيف s للفعل في المضارع: he eats.','للسؤال في المضارع نستخدم Do/Does في البداية: Do you like tea?','النفي مع I/you/we/they: do not (don\'t)، ومع he/she: does not (doesn\'t).']};
-
-/* ─── الإسبانية ─── */
 BANK.es={w:[
 ...T('g','Hola~مرحبًا~|Buenos días~صباح الخير~|Buenas noches~تصبح على خير~|Gracias~شكرًا~|Por favor~من فضلك~|Sí~نعم~|No~لا~|Perdón~آسف~|Adiós~وداعًا~|Buenas tardes~مساء الخير~|Disculpe~عفوًا~|Claro~بالطبع~'),
 ...T('q','Qué~ماذا~|Dónde~أين~|Cuándo~متى~|Quién~من~|Cuánto~كم~'),
@@ -552,8 +559,6 @@ BANK.es={w:[
 s:parseS('¿Cómo estás?~كيف حالك؟~|Me llamo Sara~اسمي سارة~|Estoy bien~أنا بخير~|¿De dónde eres?~من أين أنت؟~|Quiero agua~أريد ماءً~|Te quiero~أحبك~|Hasta luego~أراك لاحقًا~|¿Qué hora es?~كم الساعة؟~|No entiendo~لا أفهم~|¿Puedes ayudarme?~هل يمكنك مساعدتي؟~|Buena suerte~حظًا سعيدًا~|Bienvenido~أهلًا بك~'),
 p:parseP('hi~¡Hola! ¿En qué puedo ayudarte?~مرحبًا! كيف أستطيع مساعدتك؟|nice~¡Encantado de conocerte!~تشرفت بمعرفتك!|how~¿Cómo estás hoy?~كيف حالك اليوم؟|fine~Estoy bien, ¡gracias!~أنا بخير، شكرًا!|from~¿De dónde eres?~من أين أنت؟|city~Soy de El Cairo.~أنا من القاهرة.|bye~¡Hasta luego!~أراك لاحقًا!|table~Una mesa para dos, por favor.~طاولة لشخصين من فضلك.|what~¿Qué quieres comer?~ماذا تريد أن تأكل؟|order~Quiero el pollo, por favor.~أريد الدجاج من فضلك.|bill~La cuenta, por favor.~الحساب من فضلك.|del~¡Estaba delicioso!~كان لذيذًا!|this~Quiero esto, por favor.~أريد هذا من فضلك.|price~¿Cuánto cuesta?~كم سعره؟|much~Cuesta 10 dólares.~سعره 10 دولارات.|take~Me lo llevo, ¡gracias!~سآخذه، شكرًا!|tick~Un billete a Londres, por favor.~تذكرة إلى لندن من فضلك.|gate~¿De qué puerta sale el avión?~من أي بوابة الطائرة؟|gate2~Puerta número cinco.~البوابة رقم خمسة.'),
 gr:['الأسماء لها جنس: el libro مذكر، la mesa مؤنث. الصفة تتبع الاسم وتطابقه: la casa roja.','الضمائر: yo أنا، tú أنت، él/ella هو/هي، nosotros نحن، ellos هم.','النفي بوضع no قبل الفعل: No entiendo = لا أفهم.','الأسئلة تبدأ بعلامة ¿ وينقلب ترتيب الفعل: ¿Cómo estás?']};
-
-/* ─── الفرنسية ─── */
 BANK.fr={w:[
 ...T('g','Bonjour~مرحبًا~|Salut~أهلًا~|Bonne nuit~تصبح على خير~|Merci~شكرًا~|S\'il vous plaît~من فضلك~|Oui~نعم~|Non~لا~|Pardon~آسف~|Au revoir~وداعًا~|Bonsoir~مساء الخير~|Excusez-moi~عفوًا~|Bien sûr~بالطبع~'),
 ...T('q','Quoi~ماذا~|Où~أين~|Quand~متى~|Qui~من~|Combien~كم~'),
@@ -569,8 +574,6 @@ BANK.fr={w:[
 s:parseS('Comment ça va ?~كيف حالك؟~|Je m\'appelle Sara~اسمي سارة~|Ça va bien~أنا بخير~|D\'où viens-tu ?~من أين أنت؟~|Je veux de l\'eau~أريد ماءً~|Je t\'aime~أحبك~|À plus tard~أراك لاحقًا~|Quelle heure est-il ?~كم الساعة؟~|Je ne comprends pas~لا أفهم~|Peux-tu m\'aider ?~هل يمكنك مساعدتي؟~|Bonne chance~حظًا سعيدًا~|Bienvenue~أهلًا بك~'),
 p:parseP('hi~Bonjour ! Comment puis-je vous aider ?~مرحبًا! كيف أستطيع مساعدتك؟|nice~Enchanté de vous rencontrer !~تشرفت بمعرفتك!|how~Comment ça va aujourd\'hui ?~كيف حالك اليوم؟|fine~Ça va bien, merci !~أنا بخير، شكرًا!|from~D\'où venez-vous ?~من أين أنت؟|city~Je viens du Caire.~أنا من القاهرة.|bye~À plus tard !~أراك لاحقًا!|table~Une table pour deux, s\'il vous plaît.~طاولة لشخصين من فضلك.|what~Qu\'aimez-vous manger ?~ماذا تحب أن تأكل؟|order~Je voudrais le poulet, s\'il vous plaît.~أريد الدجاج من فضلك.|bill~L\'addition, s\'il vous plaît.~الحساب من فضلك.|del~C\'était délicieux !~كان لذيذًا!|this~Je veux ceci, s\'il vous plaît.~أريد هذا من فضلك.|price~Combien ça coûte ?~كم سعره؟|much~C\'est 10 dollars.~سعره 10 دولارات.|take~Je le prends, merci !~سآخذه، شكرًا!|tick~Un billet pour Londres, s\'il vous plaît.~تذكرة إلى لندن من فضلك.|gate~De quelle porte part l\'avion ?~من أي بوابة الطائرة؟|gate2~Porte numéro cinq.~البوابة رقم خمسة.'),
 gr:['أداة التعريف: le مذكر، la مؤنث، les جمع. قبل حرف علة تُختصر إلى l\'.','الضمائر: je أنا، tu أنت، il/elle هو/هي، nous نحن، ils هم.','النفي قالب حول الفعل: ne + الفعل + pas: Je ne comprends pas.','مع je يأخذ الفعل في المضارع صيغة e/ends حسب تصريفه.']};
-
-/* ─── الألمانية ─── */
 BANK.de={w:[
 ...T('g','Hallo~مرحبًا~|Guten Morgen~صباح الخير~|Gute Nacht~تصبح على خير~|Danke~شكرًا~|Bitte~من فضلك~|Ja~نعم~|Nein~لا~|Entschuldigung~آسف~|Auf Wiedersehen~وداعًا~|Guten Abend~مساء الخير~|Kein Problem~لا مشكلة~|Natürlich~بالطبع~'),
 ...T('q','Was~ماذا~|Wo~أين~|Wann~متى~|Wer~من~|Wie viel~كم~'),
@@ -586,8 +589,6 @@ BANK.de={w:[
 s:parseS('Wie geht es dir?~كيف حالك؟~|Ich heiße Sara~اسمي سارة~|Mir geht es gut~أنا بخير~|Woher kommst du?~من أين أنت؟~|Ich will Wasser~أريد ماءً~|Ich liebe dich~أحبك~|Bis später~أراك لاحقًا~|Wie spät ist es?~كم الساعة؟~|Ich verstehe nicht~لا أفهم~|Kannst du mir helfen?~هل يمكنك مساعدتي؟~|Viel Glück~حظًا سعيدًا~|Willkommen~أهلًا بك~'),
 p:parseP('hi~Hallo! Wie kann ich dir helfen?~مرحبًا! كيف أستطيع مساعدتك؟|nice~Freut mich, dich kennenzulernen!~تشرفت بمعرفتك!|how~Wie geht es dir heute?~كيف حالك اليوم؟|fine~Mir geht es gut, danke!~أنا بخير، شكرًا!|from~Woher kommst du?~من أين أنت؟|city~Ich komme aus Kairo.~أنا من القاهرة.|bye~Bis später!~أراك لاحقًا!|table~Einen Tisch für zwei, bitte.~طاولة لشخصين من فضلك.|what~Was möchtest du essen?~ماذا تريد أن تأكل؟|order~Ich möchte das Hähnchen, bitte.~أريد الدجاج من فضلك.|bill~Die Rechnung, bitte.~الحساب من فضلك.|del~Es war lecker!~كان لذيذًا!|this~Ich möchte das, bitte.~أريد هذا من فضلك.|price~Wie viel kostet es?~كم سعره؟|much~Es kostet 10 Dollar.~سعره 10 دولارات.|take~Ich nehme es, danke!~سآخذه، شكرًا!|tick~Eine Fahrkarte nach London, bitte.~تذكرة إلى لندن من فضلك.|gate~Von welchem Gate startet das Flugzeug?~من أي بوابة الطائرة؟|gate2~Gate Nummer fünf.~البوابة رقم خمسة.'),
 gr:['الاسم الألماني يُكتب دائمًا بحرف كبير: das Buch، die Milch.','الضمائر: ich أنا، du أنت، er/sie هو/هي، wir نحن، sie هم.','النفي بـ nicht بعد الفعل: Ich verstehe nicht.','الفعل في الجملة الخبرية يأخذ المركز الثاني دائمًا: Ich will Wasser.']};
-
-/* ─── الإيطالية ─── */
 BANK.it={w:[
 ...T('g','Ciao~مرحبًا~|Buongiorno~صباح الخير~|Buonanotte~تصبح على خير~|Grazie~شكرًا~|Per favore~من فضلك~|Sì~نعم~|No~لا~|Scusa~آسف~|Arrivederci~وداعًا~|Buonasera~مساء الخير~|Scusi~عفوًا~|Certo~بالطبع~'),
 ...T('q','Che cosa~ماذا~|Dove~أين~|Quando~متى~|Chi~من~|Quanto~كم~'),
@@ -603,8 +604,6 @@ BANK.it={w:[
 s:parseS('Come stai?~كيف حالك؟~|Mi chiamo Sara~اسمي سارة~|Sto bene~أنا بخير~|Di dove sei?~من أين أنت؟~|Voglio acqua~أريد ماءً~|Ti voglio bene~أحبك~|A dopo~أراك لاحقًا~|Che ora è?~كم الساعة؟~|Non capisco~لا أفهم~|Puoi aiutarmi?~هل يمكنك مساعدتي؟~|Buona fortuna~حظًا سعيدًا~|Benvenuto~أهلًا بك~'),
 p:parseP('hi~Ciao! Come posso aiutarti?~مرحبًا! كيف أستطيع مساعدتك؟|nice~Piacere di conoscerti!~تشرفت بمعرفتك!|how~Come stai oggi?~كيف حالك اليوم؟|fine~Sto bene, grazie!~أنا بخير، شكرًا!|from~Di dove sei?~من أين أنت؟|city~Sono del Cairo.~أنا من القاهرة.|bye~A dopo!~أراك لاحقًا!|table~Un tavolo per due, per favore.~طاولة لشخصين من فضلك.|what~Cosa vuoi mangiare?~ماذا تريد أن تأكل؟|order~Vorrei il pollo, per favore.~أريد الدجاج من فضلك.|bill~Il conto, per favore.~الحساب من فضلك.|del~Era delizioso!~كان لذيذًا!|this~Voglio questo, per favore.~أريد هذا من فضلك.|price~Quanto costa?~كم سعره؟|much~Costa 10 dollari.~سعره 10 دولارات.|take~Lo prendo, grazie!~سآخذه، شكرًا!|tick~Un biglietto per Londra, per favore.~تذكرة إلى لندن من فضلك.|gate~Da quale gate parte l\'aereo?~من أي بوابة الطائرة؟|gate2~Gate numero cinque.~البوابة رقم خمسة.'),
 gr:['الأسماء لها جنس: il libro مذكر، la casa مؤنث. الجمع: i libri، le case.','الضمائر: io أنا، tu أنت، lui/lei هو/هي، noi نحن، loro هم.','النفي بـ non قبل الفعل: Non capisco.','الأفعال تنتهي بـ are/ere/ire وتتصرف حسب الفاعل: io voglio، tu vuoi.']};
-
-/* ─── التركية ─── */
 BANK.tr={w:[
 ...T('g','Merhaba~مرحبًا~|Günaydın~صباح الخير~|İyi geceler~تصبح على خير~|Teşekkürler~شكرًا~|Lütfen~من فضلك~|Evet~نعم~|Hayır~لا~|Özür dilerim~آسف~|Hoşça kal~وداعًا~|İyi akşamlar~مساء الخير~|Affedersiniz~عفوًا~|Tabii~بالطبع~'),
 ...T('q','ne~ماذا~|nerede~أين~|ne zaman~متى~|kim~من~|kaç~كم~'),
@@ -620,8 +619,6 @@ BANK.tr={w:[
 s:parseS('Nasılsın?~كيف حالك؟~|Benim adım Sara~اسمي سارة~|İyiyim~أنا بخير~|Nerelisin?~من أين أنت؟~|Su istiyorum~أريد ماءً~|Seni seviyorum~أحبك~|Sonra görüşürüz~أراك لاحقًا~|Saat kaç?~كم الساعة؟~|Anlamıyorum~لا أفهم~|Bana yardım eder misin?~هل يمكنك مساعدتي؟~|İyi şanslar~حظًا سعيدًا~|Hoş geldin~أهلًا بك~'),
 p:parseP('hi~Merhaba! Sana nasıl yardımcı olabilirim?~مرحبًا! كيف أستطيع مساعدتك؟|nice~Tanıştığımıza memnun oldum!~تشرفت بمعرفتك!|how~Bugün nasılsın?~كيف حالك اليوم؟|fine~İyiyim, teşekkürler!~أنا بخير، شكرًا!|from~Nerelisin?~من أين أنت؟|city~Ben Kahireliyim.~أنا من القاهرة.|bye~Sonra görüşürüz!~أراك لاحقًا!|table~İki kişilik bir masa, lütfen.~طاولة لشخصين من فضلك.|what~Ne yemek istersin?~ماذا تريد أن تأكل؟|order~Tavuk istiyorum, lütfen.~أريد الدجاج من فضلك.|bill~Hesap, lütfen.~الحساب من فضلك.|del~Çok lezzetliydi!~كان لذيذًا!|this~Bunu istiyorum, lütfen.~أريد هذا من فضلك.|price~Bu ne kadar?~كم سعره؟|much~10 dolar.~سعره 10 دولارات.|take~Alıyorum, teşekkürler!~سآخذه، شكرًا!|tick~Londra\'ya bir bilet, lütfen.~تذكرة إلى لندن من فضلك.|gate~Uçak hangi kapıdan kalkıyor?~من أي بوابة الطائرة؟|gate2~Beş numaralı kapı.~البوابة رقم خمسة.'),
 gr:['التركية لاصقة: اللاحقة تُضاف للنهاية: ev (بيت) → evde (في البيت).','الضمائر: ben أنا، sen أنت، o هو/هي، biz نحن، onlar هم.','ترتيب الجملة: فاعل ثم مفعول ثم فعل: Ben su istiyorum.','النفي بلاحقة -me/-ma قبل نهاية الفعل: anlamıyorum = لا أفهم.']};
-
-/* ─── اليابانية ─── */
 BANK.ja={w:[
 ...T('g','こんにちは~مرحبًا~konnichiwa|おはよう~صباح الخير~ohayō|おやすみ~تصبح على خير~oyasumi|ありがとう~شكرًا~arigatō|おねがいします~من فضلك~onegai shimasu|はい~نعم~hai|いいえ~لا~iie|ごめんなさい~آسف~gomen nasai|さようなら~وداعًا~sayōnara|こんばんは~مساء الخير~konbanwa|すみません~عفوًا~sumimasen|もちろん~بالطبع~mochiron'),
 ...T('q','なに~ماذا~nani|どこ~أين~doko|いつ~متى~itsu|だれ~من~dare|いくら~كم~ikura'),
@@ -637,8 +634,6 @@ BANK.ja={w:[
 s:parseS('おげんきですか~كيف حالك؟~o-genki desu ka|わたしのなまえはサラです~اسمي سارة~watashi no namae wa Sara desu|げんきです~أنا بخير~genki desu|どこからきましたか~من أين أتيت؟~doko kara kimashita ka|みずがほしいです~أريد ماءً~mizu ga hoshii desu|あいしています~أحبك~aishite imasu|またね~أراك لاحقًا~mata ne|なんじですか~كم الساعة؟~nan-ji desu ka|わかりません~لا أفهم~wakarimasen|たすけてくれますか~هل يمكنك مساعدتي؟~tasukete kuremasu ka|がんばって~حظًا سعيدًا~ganbatte|ようこそ~أهلًا بك~yōkoso'),
 p:parseP('hi~こんにちは！なんでしょうか？~مرحبًا! كيف أستطيع مساعدتك؟|nice~はじめまして！~تشرفت بمعرفتك!|how~きょうはおげんきですか？~كيف حالك اليوم؟|fine~げんきです、ありがとう！~أنا بخير، شكرًا!|from~どこからきましたか？~من أين أتيت؟|city~カイロからきました。~أتيت من القاهرة.|bye~またね！~أراك لاحقًا!|table~ふたりぶんのせきをください。~طاولة لشخصين من فضلك.|what~なにをたべたいですか？~ماذا تريد أن تأكل؟|order~とりにくをください。~أريد الدجاج من فضلك.|bill~おかいけいをください。~الحساب من فضلك.|del~おいしかったです！~كان لذيذًا!|this~これをください。~أريد هذا من فضلك.|price~いくらですか？~كم سعره؟|much~10ドルです。~سعره 10 دولارات.|take~かいます、ありがとう！~سآخذه، شكرًا!|tick~ロンドンゆきのきっぷをください。~تذكرة إلى لندن من فضلك.|gate~ひこうきはなんばんゲートですか？~من أي بوابة الطائرة؟|gate2~5ばんゲートです。~البوابة رقم خمسة.'),
 gr:['ترتيب الجملة: فاعل ثم مفعول ثم فعل في النهاية: わたしはみずをのみます.','です تعمل مثل "أنا/هو" الكنية: げんきです = أنا بخير.','النفي: です → ではありません، وわかります → わかりません.','العد: いち、に、さん… وتُضاف つ أو こ حسب شكل الشيء.']};
-
-/* ─── الكورية ─── */
 BANK.ko={w:[
 ...T('g','안녕하세요~مرحبًا~annyeonghaseyo|안녕~أهلًا~annyeong|잘 자요~تصبح على خير~jal jayo|감사합니다~شكرًا~gamsahamnida|주세요~من فضلك~juseyo|네~نعم~ne|아니요~لا~aniyo|죄송합니다~آسف~joesonghamnida|안녕히 가세요~وداعًا~annyeonghi gaseyo|실례합니다~عفوًا~sillimhamnida|괜찮아요~لا بأس~gwaenchanayo|물론이죠~بالطبع~mullonijyo'),
 ...T('q','무엇~ماذا~mueot|어디~أين~eodi|언제~متى~eonje|누구~من~nugu|얼마~كم~eolma'),
@@ -654,8 +649,6 @@ BANK.ko={w:[
 s:parseS('어떻게 지내세요?~كيف حالك؟~eotteoke jinaeseyo?|제 이름은 사라예요~اسمي سارة~je ireumeun Sara-yeyo|잘 지내요~أنا بخير~jal jinaeyo|어디에서 왔어요?~من أين أتيت؟~eodieseo wasseoyo?|물이 필요해요~أحتاج ماءً~muri pillyohaeyo|사랑해요~أحبك~saranghaeyo|나중에 봐요~أراك لاحقًا~najunge bwayo|몇 시예요?~كم الساعة؟~myeot si-yeyo?|이해 못 해요~لا أفهم~ihae mot haeyo|도와줄 수 있어요?~هل يمكنك مساعدتي؟~dowajul su isseoyo?|행운을 빌어요~حظًا سعيدًا~haenguneul bireoyo|환영해요~أهلًا بك~hwanyeonghaeyo'),
 p:parseP('hi~안녕하세요! 무엇을 도와드릴까요?~مرحبًا! كيف أستطيع مساعدتك؟|nice~만나서 반가워요!~تشرفت بمعرفتك!|how~오늘 기분 어때요?~كيف حالك اليوم؟|fine~잘 지내요, 감사합니다!~أنا بخير، شكرًا!|from~어디에서 왔어요?~من أين أتيت؟|city~카이로에서 왔어요.~أتيت من القاهرة.|bye~나중에 봐요!~أراك لاحقًا!|table~두 명 자리 주세요.~طاولة لشخصين من فضلك.|what~뭐 드시고 싶어요?~ماذا تريد أن تأكل؟|order~치킨 주세요.~أريد الدجاج من فضلك.|bill~계산서 주세요.~الحساب من فضلك.|del~정말 맛있었어요!~كان لذيذًا!|this~이거 주세요.~أريد هذا من فضلك.|price~얼마예요?~كم سعره؟|much~10달러예요.~سعره 10 دولارات.|take~살게요, 감사합니다!~سآخذه، شكرًا!|tick~런던행 표 주세요.~تذكرة إلى لندن من فضلك.|gate~비행기 몇 번 게이트예요?~من أي بوابة الطائرة؟|gate2~5번 게이트예요.~البوابة رقم خمسة.'),
 gr:['ترتيب الجملة: فاعل ثم مفعول ثم فعل: 저는 물을 마셔요.','요 في نهاية الفعل أسلوب مهذب: 가요 (يذهب)، 먹어요 (يأكل).','النفي بـ 안 قبل الفعل أو -지 않아요: 이해 못 해요.','العناوين تُلحق بالاسم: 친구 صديق، 선생님 معلم.']};
-
-/* ─── الصينية ─── */
 BANK.zh={w:[
 ...T('g','你好~مرحبًا~nǐ hǎo|早上好~صباح الخير~zǎoshang hǎo|晚安~تصبح على خير~wǎn\'ān|谢谢~شكرًا~xièxie|请~من فضلك~qǐng|是~نعم~shì|不~لا~bù|对不起~آسف~duìbuqǐ|再见~وداعًا~zàijiàn|晚上好~مساء الخير~wǎnshang hǎo|不好意思~عفوًا~bù hǎoyìsi|当然~بالطبع~dāngrán'),
 ...T('q','什么~ماذا~shénme|哪里~أين~nǎlǐ|什么时候~متى~shénme shíhou|谁~من~shéi|多少~كم~duōshao'),
@@ -668,10 +661,9 @@ BANK.zh={w:[
 ...T('adj','大~كبير~dà|小~صغير~xiǎo|好~جيد~hǎo|坏~سيئ~huài|新~جديد~xīn|热~حار~rè'),
 ...T('pl','家~منزل~jiā|学校~مدرسة~xuéxiào|市场~سوق~shìchǎng|工作~عمل~gōngzuò|街道~شارع~jiēdào'),
 ...T('t','今天~اليوم~jīntiān|明天~غدًا~míngtiān|现在~الآن~xiànzài|晚上~ليل~wǎnshang|星期~أسبوع~xīngqī')],
-s:parseS('你好吗？~كيف حالك؟~nǐ hǎo ma?|我叫萨拉~اسمي سارة~wǒ jiào Sālā|我很好~أنا بخير~wǒ hěn hǎo|你从哪里来？~من أين أتيت؟~nǐ cóng nǎlǐ lái?|我要水~أريد ماءً~wǒ yào shuǐ|我爱你~أحبك~wǒ ài nǐ|回头见~أراك لاحقًا~huítóu jiàn|几点了？~كم الساعة؟~jǐ diǎn le?|我不懂~لا أفهم~wǒ bù dǒng|你能帮我吗？~هل يمكنك مساعدتي؟~nǐ néng bāng wǒ ma?|祝你好运~حظًا سعيدًا~zhù nǐ hǎo yùn|欢迎~أهلًا بك~huānyíng'),
-p:parseP('hi~你好！需要什么帮助？~مرحبًا! كيف أستطيع مساعدتك؟|nice~很高兴认识你！~تشرفت بمعرفتك!|how~你今天怎么样？~كيف حالك اليوم؟|fine~我很好, 谢谢!~أنا بخير، شكرًا!|from~你从哪里来？~من أين أتيت؟|city~我从开罗来。~أتيت من القاهرة.|bye~回头见！~أراك لاحقًا!|table~请给我们一张两人桌。~طاولة لشخصين من فضلك.|what~你想吃什么？~ماذا تريد أن تأكل؟|order~我要鸡肉, 谢谢。~أريد الدجاج من فضلك.|bill~请结账。~الحساب من فضلك.|del~太好吃了！~كان لذيذًا!|this~我要这个, 谢谢。~أريد هذا من فضلك.|price~多少钱？~كم سعره؟|much~十美元。~سعره 10 دولارات.|take~我买了, 谢谢!~سآخذه، شكرًا!|tick~请给我一张去伦敦的票。~تذكرة إلى لندن من فضلك.|gate~飞机在几号登机口？~من أي بوابة الطائرة؟|gate2~五号登机口。~البوابة رقم خمسة.'),
+s:parseS('你好吗？~كيف حالك؟~nǐ hǎo ma?|我叫萨拉~اسمي سارة~wǒ jiào Sālā|我很好~أنا بخير~wǒ hěn hǎo|你从哪里来？~من أين أتيت؟~nǐ cóng nǎlǐ lái?|我要水~أريد ماءً~wǒ yào shuǐ|我爱你~أحبك~wǒ ài nǐ|回头见~أراك لاحقًا~huítóu jiàn|几点了؟~كم الساعة؟~jǐ diǎn le?|我不懂~لا أفهم~wǒ bù dǒng|你能帮我吗؟~هل يمكنك مساعدتي؟~nǐ néng bāng wǒ ma?|祝你好运~حظًا سعيدًا~zhù nǐ hǎo yùn|欢迎~أهلًا بك~huānyíng'),
+p:parseP('hi~你好！需要什么帮助？~مرحبًا! كيف أستطيع مساعدتك؟|nice~很高兴认识你！~تشرفت بمعرفتك!|how~你今天怎么样؟~كيف حالك اليوم؟|fine~我很好, 谢谢!~أنا بخير، شكرًا!|from~你从哪里来؟~من أين أتيت؟|city~我从开罗来。~أتيت من القاهرة.|bye~回头见！~أراك لاحقًا!|table~请给我们一张两人桌。~طاولة لشخصين من فضلك.|what~你想吃什么؟~ماذا تريد أن تأكل؟|order~我要鸡肉, 谢谢。~أريد الدجاج من فضلك.|bill~请结账。~الحساب من فضلك.|del~太好吃了！~كان لذيذًا!|this~我要这个, 谢谢。~أريد هذا من فضلك.|price~多少钱؟~كم سعره؟|much~十美元。~سعره 10 دولارات.|take~我买了, 谢谢!~سآخذه، شكرًا!|tick~请给我一张去伦敦的票。~تذكرة إلى لندن من فضلك.|gate~飞机在几号登机口؟~من أي بوابة الطائرة؟|gate2~五号登机口。~البوابة رقم خمسة.'),
 gr:['ترتيب الجملة: فاعل ثم فعل ثم مفعول: 我喝水.','吗 في نهاية الجملة تحولها لسؤال: 你好吗؟','النفي بـ 不 قبل الفعل: 我不懂.','汉字 لا تُفراغ بينها، والنطق يُكتب بالـ pinyin مع علامات النبرة.']};
-
 const TAG_NAMES={g:'التحيات',q:'كلمات السؤال',n:'الأرقام',c:'الألوان',f:'الطعام والشراب',fam:'العائلة',a:'الحيوانات',v:'الأفعال',adj:'الصفات',pl:'الأماكن',t:'الوقت والأيام'};
 
 /* ═══════ 7) مولّد المنهج — 25 درسًا بمحتوى فريد ═══════ */
@@ -1159,7 +1151,8 @@ function renderWelcome(){
  <div class="field"><label>كم عمرك؟</label><input class="inp" id="wa" type="number" min="4" max="99" placeholder="عمرك بالأرقام"></div>
  <div class="err" id="werr"></div>
  <button class="btn btn-y" style="width:100%;font-size:19px" id="wgo">هيا نبدأ</button>
- <p class="muted" style="font-size:13px;margin-top:12px;font-weight:600">لو عندك حسابات باسم واحد هتلاقيها كلها هنا وتختار بينها — وتقدر تعمل حسابات جديدة براحتك. عمرك سري ولن يظهر لأي أحد.</p>`;
+ <p class="muted" style="font-size:13px;margin-top:12px;font-weight:600">لو عندك حسابات باسم واحد هتلاقيها كلها هنا وتختار بينها — وتقدر تعمل حسابات جديدة براحتك. عمرك سري ولن يظهر لأي أحد.</p>
+ ${copyFootHTML}`;
  $('#wgo').onclick=()=>{
   const name=($('#wn').value||'').trim(),age=$('#wa').value;
   const err=$('#werr');
@@ -1183,7 +1176,8 @@ function renderAccountPicker(name,matches){
   <span style="flex:1"><b>${esc(u.nickname||u.name)}</b><small>${lvlOf(u.xp).n} · ${u.xp} XP · ${ic('flame',13)} ${u.streak} يوم</small></span>
   <span style="color:var(--sub)">${ic('arr',20)}</span></button>`).join('')}
  <button class="btn btn-t" style="width:100%;margin-top:6px" onclick="A.createNewAcc()">${ic('user',18)} إنشاء حساب جديد بنفس الاسم</button>
- <button class="btn btn-o btn-sm" style="width:100%;margin-top:8px" onclick="A.backWelcome()">رجوع</button>`;
+ <button class="btn btn-o btn-sm" style="width:100%;margin-top:8px" onclick="A.backWelcome()">رجوع</button>
+ ${copyFootHTML}`;
 }
 A.pickAcc=id=>{
  DB.session=id;save();
@@ -1220,7 +1214,8 @@ function drawOB(){
   <button class="big-opt" onclick="A.obTest()">اختبار تحديد المستوى<small>أسئلة سريعة لنضعك في المكان الصحيح</small></button>`;
  }
  box.innerHTML=`<div class="wrap"><div class="step-dots">${dots}</div>${inner}</div>
-  <div class="ob-foot">${(s!=='lang'&&s!=='level')?`<button class="btn btn-o" onclick="A.obBack()" ${OB.step===0?'style="visibility:hidden"':''}>رجوع</button><button class="btn btn-y" style="min-width:150px" onclick="A.obNext()">متابعة</button>`:''}</div>`;
+  <div class="ob-foot">${(s!=='lang'&&s!=='level')?`<button class="btn btn-o" onclick="A.obBack()" ${OB.step===0?'style="visibility:hidden"':''}>رجوع</button><button class="btn btn-y" style="min-width:150px" onclick="A.obNext()">متابعة</button>`:''}
+  <span class="copy-sm">${COPYRIGHT}</span></div>`;
  if(s==='avatar')mountAvatarEditor($('#av-holder'),OB.draft.avatar,null);
  if(s==='bird'){
   const bc=$('#bird-cards');
@@ -1865,7 +1860,8 @@ function teachDone(){
  <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
   <button class="btn btn-y" onclick="A.teachRestart()">ابدأ من الأول (مراجعة)</button>
   <button class="btn btn-o" onclick="A.go('path')">المسار التعليمي</button>
- </div></div>`;
+ </div>
+ ${copyBarHTML}</div>`;
  confetti();
 }
 A.teachRestart=()=>{U.teach={lang:U.lang,idx:0,tw:[],ts:[]};save();renderTeach()};
@@ -2067,7 +2063,8 @@ function renderProfile(){
   <div class="res-stat"><b style="color:var(--yell-d)">${achN}/${ACH.length}</b><small>إنجازات</small></div>
  </div>
  <h3 class="sec-title">${ic('book',18)} كلماتي (${wordsN})</h3>
- <button class="btn btn-o" style="width:100%" onclick="A.showWords()">عرض قائمة كلماتي</button>`;
+ <button class="btn btn-o" style="width:100%" onclick="A.showWords()">عرض قائمة كلماتي</button>
+ ${copyBarHTML}`;
 }
 A.showWords=()=>{
  const list=Object.entries(U.words).filter(([k])=>{
@@ -2110,10 +2107,12 @@ function renderSettings(){
  ${row('الهدف اليومي','XP الذي تستهدفه كل يوم',`<div class="seg">${[10,20,30,50].map(g=>`<button class="${s.goal===g?'on':''}" onclick="A.setGoal(${g})">${g}</button>`).join('')}</div>`)}
  ${row('المظهر','الوضع الفاتح أو الداكن — يُحفظ اختيارك',`<div class="seg"><button class="${s.theme==='light'?'on':''}" onclick="A.setTheme('light')">${ic('sun',14)} فاتح</button><button class="${s.theme==='dark'?'on':''}" onclick="A.setTheme('dark')">${ic('moon',14)} داكن</button></div>`)}
  ${row('الخصوصية','عمرك لا يظهر لأي مستخدم أبدًا ويبقى على جهازك فقط',`<span class="chip" style="color:var(--grn)">${ic('shield',16)} محمي</span>`)}
+ ${row('حقوق الملكية',COPYRIGHT,'')}
  <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">
   <button class="btn btn-o" onclick="A.logout()">${ic('out',17)} تسجيل الخروج</button>
   <button class="btn btn-r" onclick="A.delAcc()">${ic('x',17)} حذف الحساب نهائيًا</button>
- </div>`;
+ </div>
+ ${copyBarHTML}`;
 }
 A.editName=()=>{
  openScreenModal('تعديل الحساب',`<p class="muted" style="font-weight:600;margin-bottom:12px">عند الدخول باسمك هتلاقي كل حساباتك باسمك في قايمة تختار منها.</p>
