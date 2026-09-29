@@ -45,12 +45,11 @@ h1,h2,h3{font-weight:800}
 .logo .t{line-height:1.05;text-align:start}
 .logo .t b{display:block;font-size:1.3em;font-weight:800}
 .logo .t span{font-size:.68em;letter-spacing:3px;color:var(--sub);font-weight:700}
-/* حقوق الملكية */
 .copy-foot{margin-top:18px;font-size:13px;font-weight:800;color:var(--sub);display:flex;align-items:center;justify-content:center;gap:6px}
 .copy-foot svg{width:16px;height:16px;opacity:.75}
 .copy-bar{border-top:2px solid var(--line);margin-top:20px;padding-top:14px;font-size:13px;font-weight:800;color:var(--sub);display:flex;align-items:center;justify-content:center;gap:6px}
 .copy-bar svg{width:16px;height:16px;opacity:.75}
-.copy-sm{font-size:11px;font-weight:800;color:var(--sub);opacity:.85}
+.copy-sm{font-size:11px;font-weight:800;color:var(--sub);opacity:.85;width:100%;text-align:center;margin-top:4px}
 .scr{display:none;min-height:100vh}
 .scr.on{display:block}
 .center{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
@@ -87,21 +86,18 @@ h1,h2,h3{font-weight:800}
 .bird-card b{display:block;font-size:15px}
 .bird-card small{color:var(--sub);font-weight:600;font-size:12px}
 .bird-card:active{transform:scale(.95)}
+/* الشريط العلوي */
 #topbar{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:2px solid var(--line);padding:8px 14px;display:flex;align-items:center;gap:10px}
 #topbar .hud{display:flex;gap:7px;margin-inline-start:auto;align-items:center}
 .chip .n{font-weight:800}
+/* الجسم: الشريط السفلي ثابت في كل الشاشات — مفيش قايمة جانبية */
 #app-body{display:flex;max-width:1080px;margin:0 auto;width:100%}
 #main{flex:1;padding:16px 14px 90px;min-height:calc(100vh - 60px)}
-#nav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--card);border-top:2px solid var(--line);display:flex;justify-content:space-around;padding:6px 2px calc(6px + env(safe-area-inset-bottom))}
-#nav button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;font-weight:700;color:var(--sub);padding:5px 6px;border-radius:12px}
+#nav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--card);border-top:2px solid var(--line);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+#nav button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:700;color:var(--sub);padding:5px 12px;border-radius:12px}
 #nav button.on{color:var(--ink);background:var(--line)}
-#nav button svg{width:21px;height:21px}
-@media(min-width:900px){
-  #nav{position:sticky;top:60px;height:calc(100vh - 60px);width:190px;flex-direction:column;justify-content:flex-start;gap:6px;padding:16px 10px;border-top:none;border-inline-start:2px solid var(--line)}
-  #nav button{flex-direction:row;justify-content:flex-start;font-size:15px;padding:11px 14px;width:100%}
-  #nav button svg{width:21px;height:21px}
-  #main{padding:22px 26px}
-}
+#nav button svg{width:22px;height:22px}
+/* الرئيسية */
 .hero{display:flex;gap:16px;align-items:stretch;flex-wrap:wrap;margin-bottom:16px}
 .hero-txt{flex:1 1 300px;display:flex;flex-direction:column;gap:10px}
 .hero-txt h2{font-size:26px}
@@ -138,6 +134,7 @@ h1,h2,h3{font-weight:800}
 .node.lock{opacity:.55;cursor:not-allowed}
 .node.lock .dot{background:var(--line2)}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(242,183,5,.5)}50%{box-shadow:0 0 0 9px rgba(242,183,5,0)}}
+/* الدرس */
 #les-top{display:flex;align-items:center;gap:12px;padding:10px 0}
 .pbar{flex:1;height:13px;background:var(--line);border-radius:9px;overflow:hidden}
 .pbar i{display:block;height:100%;background:var(--grn);border-radius:9px;transition:width .35s}
@@ -187,6 +184,7 @@ h1,h2,h3{font-weight:800}
 .res-stat small{color:var(--sub);font-weight:700;font-size:12px}
 @keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
 .conf{position:fixed;top:-20px;width:12px;height:12px;border-radius:3px;z-index:60;pointer-events:none}
+/* الشات والمحادثة */
 .chat-wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;height:calc(100vh - 130px)}
 .chat-box{flex:1;overflow-y:auto;padding:10px 4px;display:flex;flex-direction:column;gap:10px}
 .msg{max-width:82%;padding:11px 15px;border-radius:18px;font-weight:600;font-size:16px;line-height:1.8;border:2px solid var(--line)}
@@ -205,6 +203,7 @@ h1,h2,h3{font-weight:800}
 .scen-row .sic svg{width:24px;height:24px}
 .bubble-bird{display:flex;gap:10px;align-items:flex-end;margin-bottom:10px}
 .bubble-bird .bb-t{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 14px;max-width:78%}
+/* الملف/الإنجازات/الإعدادات */
 .prof-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .stat-grid{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
 .ach-row{display:flex;align-items:center;gap:14px;padding:13px 15px;border:2px solid var(--line);border-radius:16px;background:var(--card);margin-bottom:10px}
@@ -228,6 +227,7 @@ h1,h2,h3{font-weight:800}
 .toast{background:var(--ink);color:var(--bg);padding:9px 20px;border-radius:999px;font-weight:700;font-size:14px;animation:pop .3s;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .speech-tip{position:absolute;background:var(--ink);color:var(--bg);padding:7px 14px;border-radius:13px;font-weight:700;font-size:13px;white-space:nowrap;animation:pop .25s;z-index:5}
 .speech-tip::after{content:"";position:absolute;bottom:-7px;right:24px;border:8px solid transparent;border-top-color:var(--ink);border-bottom:0}
+/* مدرسة كوكتيل */
 .teach-head{display:flex;align-items:center;gap:12px;max-width:560px;margin:0 auto 10px}
 .teach-prog{max-width:560px;margin:0 auto 14px;display:flex;align-items:center;gap:10px}
 .teach-card{max-width:560px;margin:0 auto;padding:22px;text-align:center}
@@ -237,6 +237,7 @@ h1,h2,h3{font-weight:800}
 .teach-ex{margin-top:14px;padding:12px;border:2px dashed var(--line2);border-radius:14px;font-weight:700}
 .teach-btns{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
 .quiz-card{max-width:560px;margin:0 auto;padding:20px;text-align:center}
+/* الطيور */
 .birdSVG{overflow:visible}
 .birdSVG .wing{transform-box:fill-box;transform-origin:85% 15%}
 .b-happy{animation:hop .55s ease}
@@ -260,7 +261,6 @@ svg .eyeball{transform-box:fill-box;transform-origin:center}
   <header id="topbar"></header>
   <div id="app-body">
     <main id="main"></main>
-    <nav id="nav"></nav>
   </div>
 </div>
 <div id="fb"></div>
@@ -283,7 +283,6 @@ const yesterdayKey=()=>{const d=new Date();d.setDate(d.getDate()-1);return dayKe
 function toast(t){const el=document.createElement('div');el.className='toast';el.textContent=t;$('#toasts').appendChild(el);setTimeout(()=>{el.style.opacity=0;el.style.transition='opacity .4s';setTimeout(()=>el.remove(),400)},2200)}
 function modal(html){const w=$('#modal-wrap'),m=$('#modal');m.innerHTML=html;w.classList.add('on');w.onclick=e=>{if(e.target===w)w.classList.remove('on')}}
 const closeModal=()=>$('#modal-wrap').classList.remove('on');
-/* ═══ حقوق الملكية — عدّل هذا السطر فقط لو حبيت تغيّر الاسم أو السنة ═══ */
 const COPYRIGHT='© 2026 حازم أحمد — جميع الحقوق محفوظة';
 const COPY_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6Z" stroke-linejoin="round"/></svg>';
 const copyFootHTML=`<div class="copy-foot">${COPY_ICON}<span>${COPYRIGHT}</span></div>`;
@@ -632,7 +631,7 @@ BANK.ja={w:[
 ...T('pl','いえ~منزل~ie|がっこう~مدرسة~gakkō|みせ~سوق~mise|しごと~عمل~shigoto|みち~شارع~michi'),
 ...T('t','きょう~اليوم~kyō|あした~غدًا~ashita|いま~الآن~ima|よる~ليل~yoru|しゅう~أسبوع~shū')],
 s:parseS('おげんきですか~كيف حالك؟~o-genki desu ka|わたしのなまえはサラです~اسمي سارة~watashi no namae wa Sara desu|げんきです~أنا بخير~genki desu|どこからきましたか~من أين أتيت؟~doko kara kimashita ka|みずがほしいです~أريد ماءً~mizu ga hoshii desu|あいしています~أحبك~aishite imasu|またね~أراك لاحقًا~mata ne|なんじですか~كم الساعة؟~nan-ji desu ka|わかりません~لا أفهم~wakarimasen|たすけてくれますか~هل يمكنك مساعدتي؟~tasukete kuremasu ka|がんばって~حظًا سعيدًا~ganbatte|ようこそ~أهلًا بك~yōkoso'),
-p:parseP('hi~こんにちは！なんでしょうか？~مرحبًا! كيف أستطيع مساعدتك؟|nice~はじめまして！~تشرفت بمعرفتك!|how~きょうはおげんきですか？~كيف حالك اليوم؟|fine~げんきです、ありがとう！~أنا بخير، شكرًا!|from~どこからきましたか？~من أين أتيت؟|city~カイロからきました。~أتيت من القاهرة.|bye~またね！~أراك لاحقًا!|table~ふたりぶんのせきをください。~طاولة لشخصين من فضلك.|what~なにをたべたいですか？~ماذا تريد أن تأكل؟|order~とりにくをください。~أريد الدجاج من فضلك.|bill~おかいけいをください。~الحساب من فضلك.|del~おいしかったです！~كان لذيذًا!|this~これをください。~أريد هذا من فضلك.|price~いくらですか？~كم سعره؟|much~10ドルです。~سعره 10 دولارات.|take~かいます、ありがとう！~سآخذه، شكرًا!|tick~ロンドンゆきのきっぷをください。~تذكرة إلى لندن من فضلك.|gate~ひこうきはなんばんゲートですか？~من أي بوابة الطائرة؟|gate2~5ばんゲートです。~البوابة رقم خمسة.'),
+p:parseP('hi~こんにちは！なんでしょうか？~مرحبًا! كيف أستطيع مساعدتك؟|nice~はじめまして！~تشرفت بمعرفتك!|how~きょうはおげんきですか؟~كيف حالك اليوم؟|fine~げんきです、ありがとう！~أنا بخير، شكرًا!|from~どこからきましたか؟~من أين أتيت؟|city~カイロからきました。~أتيت من القاهرة.|bye~またね！~أراك لاحقًا!|table~ふたりぶんのせきをください。~طاولة لشخصين من فضلك.|what~なにをたべたいですか؟~ماذا تريد أن تأكل؟|order~とりにくをください。~أريد الدجاج من فضلك.|bill~おかいけいをください。~الحساب من فضلك.|del~おいしかったです！~كان لذيذًا!|this~これをください。~أريد هذا من فضلك.|price~いくらですか؟~كم سعره؟|much~10ドルです。~سعره 10 دولارات.|take~かいます、ありがとう！~سآخذه، شكرًا!|tick~ロンドンゆきのきっぷをください。~تذكرة إلى لندن من فضلك.|gate~ひこうきはなんばんゲートですか؟~من أي بوابة الطائرة؟|gate2~5ばんゲートです。~البوابة رقم خمسة.'),
 gr:['ترتيب الجملة: فاعل ثم مفعول ثم فعل في النهاية: わたしはみずをのみます.','です تعمل مثل "أنا/هو" الكنية: げんきです = أنا بخير.','النفي: です → ではありません، وわかります → わかりません.','العد: いち、に、さん… وتُضاف つ أو こ حسب شكل الشيء.']};
 BANK.ko={w:[
 ...T('g','안녕하세요~مرحبًا~annyeonghaseyo|안녕~أهلًا~annyeong|잘 자요~تصبح على خير~jal jayo|감사합니다~شكرًا~gamsahamnida|주세요~من فضلك~juseyo|네~نعم~ne|아니요~لا~aniyo|죄송합니다~آسف~joesonghamnida|안녕히 가세요~وداعًا~annyeonghi gaseyo|실례합니다~عفوًا~sillimhamnida|괜찮아요~لا بأس~gwaenchanayo|물론이죠~بالطبع~mullonijyo'),
@@ -647,8 +646,8 @@ BANK.ko={w:[
 ...T('pl','집~منزل~jip|학교~مدرسة~hakgyo|시장~سوق~sijang|회사~عمل~hoesa|길~شارع~gil'),
 ...T('t','오늘~اليوم~oneul|내일~غدًا~naeil|지금~الآن~jigeum|밤~ليل~bam|일주일~أسبوع~iljuil')],
 s:parseS('어떻게 지내세요?~كيف حالك؟~eotteoke jinaeseyo?|제 이름은 사라예요~اسمي سارة~je ireumeun Sara-yeyo|잘 지내요~أنا بخير~jal jinaeyo|어디에서 왔어요?~من أين أتيت؟~eodieseo wasseoyo?|물이 필요해요~أحتاج ماءً~muri pillyohaeyo|사랑해요~أحبك~saranghaeyo|나중에 봐요~أراك لاحقًا~najunge bwayo|몇 시예요?~كم الساعة؟~myeot si-yeyo?|이해 못 해요~لا أفهم~ihae mot haeyo|도와줄 수 있어요?~هل يمكنك مساعدتي؟~dowajul su isseoyo?|행운을 빌어요~حظًا سعيدًا~haenguneul bireoyo|환영해요~أهلًا بك~hwanyeonghaeyo'),
-p:parseP('hi~안녕하세요! 무엇을 도와드릴까요?~مرحبًا! كيف أستطيع مساعدتك؟|nice~만나서 반가워요!~تشرفت بمعرفتك!|how~오늘 기분 어때요?~كيف حالك اليوم؟|fine~잘 지내요, 감사합니다!~أنا بخير، شكرًا!|from~어디에서 왔어요?~من أين أتيت؟|city~카이로에서 왔어요.~أتيت من القاهرة.|bye~나중에 봐요!~أراك لاحقًا!|table~두 명 자리 주세요.~طاولة لشخصين من فضلك.|what~뭐 드시고 싶어요?~ماذا تريد أن تأكل؟|order~치킨 주세요.~أريد الدجاج من فضلك.|bill~계산서 주세요.~الحساب من فضلك.|del~정말 맛있었어요!~كان لذيذًا!|this~이거 주세요.~أريد هذا من فضلك.|price~얼마예요?~كم سعره؟|much~10달러예요.~سعره 10 دولارات.|take~살게요, 감사합니다!~سآخذه، شكرًا!|tick~런던행 표 주세요.~تذكرة إلى لندن من فضلك.|gate~비행기 몇 번 게이트예요?~من أي بوابة الطائرة؟|gate2~5번 게이트예요.~البوابة رقم خمسة.'),
-gr:['ترتيب الجملة: فاعل ثم مفعول ثم فعل: 저는 물을 마셔요.','요 في نهاية الفعل أسلوب مهذب: 가요 (يذهب)، 먹어요 (يأكل).','النفي بـ 안 قبل الفعل أو -지 않아요: 이해 못 해요.','العناوين تُلحق بالاسم: 친구 صديق، 선생님 معلم.']};
+p:parseP('hi~안녕하세요! 무엇을 도와드릴까요؟~مرحبًا! كيف أستطيع مساعدتك؟|nice~만나서 반가워요!~تشرفت بمعرفتك!|how~오늘 기분 어때요؟~كيف حالك اليوم؟|fine~잘 지내요, 감사합니다!~أنا بخير، شكرًا!|from~어디에서 왔어요؟~من أين أتيت؟|city~카이로에서 왔어요.~أتيت من القاهرة.|bye~나중에 봐요!~أراك لاحقًا!|table~두 명 자리 주세요.~طاولة لشخصين من فضلك.|what~뭐 드시고 싶어요؟~ماذا تريد أن تأكل؟|order~치킨 주세요.~أريد الدجاج من فضلك.|bill~계산서 주세요.~الحساب من فضلك.|del~정말 맛있었어요!~كان لذيذًا!|this~이거 주세요.~أريد هذا من فضلك.|price~얼마예요؟~كم سعره؟|much~10달러예요.~سعره 10 دولارات.|take~살게요, 감사합니다!~سآخذه، شكرًا!|tick~런던행 표 주세요.~تذكرة إلى لندن من فضلك.|gate~비행기 몇 번 게이트예요؟~من أي بوابة الطائرة؟|gate2~5번 게이트예요.~البوابة رقم خمسة.'),
+gr:['ترتيب الجملة: فاعل ثم مفعول ثم فعل: 저는 물을 마셔요.','요 في نهاية الفعل أسلوب مهذب: 가요 (يذهب)، 먹어요 (يأكل).','النفي بـ 안 قبل الفعل أو -지 않ا요: 이해 못 해요.','العناوين تُلحق بالاسم: 친구 صديق، 선생님 معلم.']};
 BANK.zh={w:[
 ...T('g','你好~مرحبًا~nǐ hǎo|早上好~صباح الخير~zǎoshang hǎo|晚安~تصبح على خير~wǎn\'ān|谢谢~شكرًا~xièxie|请~من فضلك~qǐng|是~نعم~shì|不~لا~bù|对不起~آسف~duìbuqǐ|再见~وداعًا~zàijiàn|晚上好~مساء الخير~wǎnshang hǎo|不好意思~عفوًا~bù hǎoyìsi|当然~بالطبع~dāngrán'),
 ...T('q','什么~ماذا~shénme|哪里~أين~nǎlǐ|什么时候~متى~shénme shíhou|谁~من~shéi|多少~كم~duōshao'),
@@ -661,8 +660,8 @@ BANK.zh={w:[
 ...T('adj','大~كبير~dà|小~صغير~xiǎo|好~جيد~hǎo|坏~سيئ~huài|新~جديد~xīn|热~حار~rè'),
 ...T('pl','家~منزل~jiā|学校~مدرسة~xuéxiào|市场~سوق~shìchǎng|工作~عمل~gōngzuò|街道~شارع~jiēdào'),
 ...T('t','今天~اليوم~jīntiān|明天~غدًا~míngtiān|现在~الآن~xiànzài|晚上~ليل~wǎnshang|星期~أسبوع~xīngqī')],
-s:parseS('你好吗？~كيف حالك؟~nǐ hǎo ma?|我叫萨拉~اسمي سارة~wǒ jiào Sālā|我很好~أنا بخير~wǒ hěn hǎo|你从哪里来？~من أين أتيت؟~nǐ cóng nǎlǐ lái?|我要水~أريد ماءً~wǒ yào shuǐ|我爱你~أحبك~wǒ ài nǐ|回头见~أراك لاحقًا~huítóu jiàn|几点了؟~كم الساعة؟~jǐ diǎn le?|我不懂~لا أفهم~wǒ bù dǒng|你能帮我吗؟~هل يمكنك مساعدتي؟~nǐ néng bāng wǒ ma?|祝你好运~حظًا سعيدًا~zhù nǐ hǎo yùn|欢迎~أهلًا بك~huānyíng'),
-p:parseP('hi~你好！需要什么帮助？~مرحبًا! كيف أستطيع مساعدتك؟|nice~很高兴认识你！~تشرفت بمعرفتك!|how~你今天怎么样؟~كيف حالك اليوم؟|fine~我很好, 谢谢!~أنا بخير، شكرًا!|from~你从哪里来؟~من أين أتيت؟|city~我从开罗来。~أتيت من القاهرة.|bye~回头见！~أراك لاحقًا!|table~请给我们一张两人桌。~طاولة لشخصين من فضلك.|what~你想吃什么؟~ماذا تريد أن تأكل؟|order~我要鸡肉, 谢谢。~أريد الدجاج من فضلك.|bill~请结账。~الحساب من فضلك.|del~太好吃了！~كان لذيذًا!|this~我要这个, 谢谢。~أريد هذا من فضلك.|price~多少钱؟~كم سعره؟|much~十美元。~سعره 10 دولارات.|take~我买了, 谢谢!~سآخذه، شكرًا!|tick~请给我一张去伦敦的票。~تذكرة إلى لندن من فضلك.|gate~飞机在几号登机口؟~من أي بوابة الطائرة؟|gate2~五号登机口。~البوابة رقم خمسة.'),
+s:parseS('你好吗؟~كيف حالك؟~nǐ hǎo ma?|我叫萨拉~اسمي سارة~wǒ jiào Sālā|我很好~أنا بخير~wǒ hěn hǎo|你从哪里来؟~من أين أتيت؟~nǐ cóng nǎlǐ lái?|我要水~أريد ماءً~wǒ yào shuǐ|我爱你~أحبك~wǒ ài nǐ|回头见~أراك لاحقًا~huítóu jiàn|几点了؟~كم الساعة؟~jǐ diǎn le?|我不懂~لا أفهم~wǒ bù dǒng|你能帮我吗؟~هل يمكنك مساعدتي؟~nǐ néng bāng wǒ ma?|祝你好运~حظًا سعيدًا~zhù nǐ hǎo yùn|欢迎~أهلًا بك~huānyíng'),
+p:parseP('hi~你好！需要什么帮助؟~مرحبًا! كيف أستطيع مساعدتك؟|nice~很高兴认识你！~تشرفت بمعرفتك!|how~你今天怎么样؟~كيف حالك اليوم؟|fine~我很好, 谢谢!~أنا بخير، شكرًا!|from~你从哪里来؟~من أين أتيت؟|city~我从开罗来。~أتيت من القاهرة.|bye~回头见！~أراك لاحقًا!|table~请给我们一张两人桌。~طاولة لشخصين من فضلك.|what~你想吃什么؟~ماذا تريد أن تأكل؟|order~我要鸡肉, 谢谢。~أريد الدجاج من فضلك.|bill~请结账。~الحساب من فضلك.|del~太好吃了！~كان لذيذًا!|this~我要这个, 谢谢。~أريد هذا من فضلك.|price~多少钱؟~كم سعره؟|much~十美元。~سعره 10 دولارات.|take~我买了, 谢谢!~سآخذه، شكرًا!|tick~请给我一张去伦敦的票。~تذكرة إلى لندن من فضلك.|gate~飞机在几号登机口؟~من أي بوابة الطائرة؟|gate2~五号登机口。~البوابة رقم خمسة.'),
 gr:['ترتيب الجملة: فاعل ثم فعل ثم مفعول: 我喝水.','吗 في نهاية الجملة تحولها لسؤال: 你好吗؟','النفي بـ 不 قبل الفعل: 我不懂.','汉字 لا تُفراغ بينها، والنطق يُكتب بالـ pinyin مع علامات النبرة.']};
 const TAG_NAMES={g:'التحيات',q:'كلمات السؤال',n:'الأرقام',c:'الألوان',f:'الطعام والشراب',fam:'العائلة',a:'الحيوانات',v:'الأفعال',adj:'الصفات',pl:'الأماكن',t:'الوقت والأيام'};
 
@@ -1306,7 +1305,6 @@ A.editAvatar=()=>{
  openScreenModal('تعديل الشخصية','<div id="ed-av"></div>',()=>{
   mountAvatarEditor($('#ed-av'),Object.assign({},U.avatar),cfg=>{
    U.avatar=cfg;save();closeModal();renderHUD();
-   if($('#nav button.on')&&$('#nav button.on').dataset.s==='profile')renderProfile();
    toast('تحديثت شخصيتك في كل مكان!');birdSay('شكل جديد! يعجبني!');
   });
  });
@@ -1686,7 +1684,7 @@ function renderReview(){
  <p class="muted" style="font-weight:600;font-size:13px;margin-top:10px">كل جلسة مراجعة تمنحك XP وتقوّي ذاكرتك</p></div>`;
 }
 A.startRevBtn=()=>startReview(false);
-function startReview(fromBreak){
+function startReview(){
  const{weak}=dueWords();
  const pool=weak.length?weak.slice(0,8):BANK[U.lang].w.slice(0,6);
  const R=rng('rev'+Date.now());
@@ -1698,7 +1696,7 @@ function startReview(fromBreak){
  startLesson({title:'مراجعة',ex:ex.slice(0,8),isReview:true,words:pool});
 }
 
-/* ═══════ 13-b) مدرسة كوكتيل ═══════ */
+/* ═══════ مدرسة كوكتيل ═══════ */
 const TCACHE={};
 let TE={items:null,lang:null};
 const TAG_ORDER=['g','q','n','c','f','fam','a','v','adj','pl','t'];
